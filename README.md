@@ -135,6 +135,7 @@ Wir werden die Stylesheets im Workshop gemeinsam nutzen.
 
 ## 6.) Projekt erforschen
 
+Öffne den Projektordner `book-rating` in deinem Editor.
 Nimm dir nun ein paar Minuten Zeit, um die Struktur des generierten Projekts zu untersuchen.
 So hast du die wichtigsten Dateien schon einmal gesehen, bevor wir den Aufbau in der Schulung ausführlich besprechen!
 
