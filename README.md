@@ -126,7 +126,7 @@ npm i @angular-schule/workshop-styles
 Öffne dann bitte die Datei `src/styles.scss` im Projektordner `book-rating` und füge die folgende Zeile ein:
 
 ```css
-@use '@angular-schule/workshop-styles/index';
+@use '@angular-schule/workshop-styles';
 ```
 
 Damit werden die installierten Styles global in das Projekt eingebunden und sind aktiv.
