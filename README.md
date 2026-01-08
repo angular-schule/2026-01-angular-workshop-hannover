@@ -31,6 +31,9 @@ Die Übungen befinden sich im Ordner `rxjs-playground/src/app/exercises/`.
 Damit wir gleich durchstarten können, solltest Du ein paar Vorbereitungen treffen.  
 Die gesamte Installation wird rund 30 Minuten dauern. 
 
+> [!IMPORTANT]  
+> **Bitte erledige die Vorbereitung rechtzeitig vor dem Kurs. Bitte melde dich bei uns, wenn etwas nicht klappt.**
+
 ## 1.) Benötigte Software
 
 1. **Node.js 20, 22 oder 24** (jeweils die aktuelle Nebenversionsnummer): [https://nodejs.org](https://nodejs.org)
