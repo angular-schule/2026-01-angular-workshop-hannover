@@ -86,16 +86,12 @@ Global sollte stets die neueste Version installiert sein.
 
 Bitte lege das Übungsprojekt schon vor Beginn des Workshops an.
 Die Angular CLI nimmt uns die meisten Schritte schon ab.
-Was die Parameter im Einzelnen bedeuten, besprechen wir natürlich im Workshop!
+Führe in Deinem Arbeitsverzeichnis den folgenden Befehl aus, um das Projekt zu erstellen:
 
 > ⚠️ Bitte erstelle das Projekt nicht auf einem Netzlaufwerk, sondern direkt auf der lokalen Festplatte!
 
-Führe in Deinem Arbeitsverzeichnis die folgenden Befehle aus:
-
 ```bash
 ng new book-rating --style=scss --no-ssr
-cd book-rating
-ng serve
 ```
 
 Du kannst während der Installation die Angular-Unterstützung für KI-Tools aktivieren, falls du einen der aufgelisteten Dienste verwendest.
@@ -104,8 +100,14 @@ Falls nicht, wähle bei der Frage "*Which AI tools do you want to configure with
 Die anschließende Installation kann bei langsamer Internetverbindung sehr lange dauern.
 Warte beim Schritt `Installing packages (npm)` mit Geduld ab!
 
+Anschließend kannst du in den Ordner wechseln und die Anwendung mit dem Entwicklungswebserver starten:
 
-> Auf http://localhost:4200 sollte nun eine Website mit dem Text *"Hello, book-rating"* erscheinen!
+```bash
+cd book-rating
+ng serve
+```
+
+> Im Browser sollte unter http://localhost:4200 nun eine Website mit dem Text *"Hello, book-rating"* erscheinen!
 
 ![Screenshot CLI](https://assets.angular.schule/chrome_cli_welcome_ng17.png)
 
