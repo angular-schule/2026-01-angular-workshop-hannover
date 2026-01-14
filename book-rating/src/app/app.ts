@@ -1,3 +1,4 @@
+
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -8,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('book-rating');
+  protected readonly title = signal('Book Rating');
 }
