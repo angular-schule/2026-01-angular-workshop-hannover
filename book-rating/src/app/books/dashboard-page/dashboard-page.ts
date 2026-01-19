@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Book } from '../shared/book';
-import { JsonPipe } from '@angular/common';
 import { BookCard } from "../book-card/book-card";
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [JsonPipe, BookCard],
+  imports: [BookCard],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // weniger Prüfungen als vorher
@@ -33,4 +32,12 @@ export class DashboardPage {
       rating: 1
     },
   ]);
+
+  doRateUp(book: Book) {
+    console.log(book);
+  }
+
+  doRateDown(book: Book) {
+    console.table(book);
+  }
 }
