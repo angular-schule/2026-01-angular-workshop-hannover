@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Book } from '../shared/book';
+import { form } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-book-create-page',
@@ -8,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class BookCreatePage {
 
+  readonly #formData = signal<Book>({
+    isbn: '',
+    title: '',
+    description: '',
+    rating: 1
+  });
+
+  protected readonly bookForm = form(this.#formData);
 }
