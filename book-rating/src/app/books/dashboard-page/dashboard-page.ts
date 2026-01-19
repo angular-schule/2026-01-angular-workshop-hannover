@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Book } from '../shared/book';
 import { BookCard } from "../book-card/book-card";
+import { BookRatingHelper } from '../shared/book-rating-helper';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -11,11 +12,13 @@ import { BookCard } from "../book-card/book-card";
 })
 export class DashboardPage {
 
+  bookRatingHelper = inject(BookRatingHelper);
+
   // 🦆
   readonly books = signal<Book[]>([
     {
       isbn: '000',
-      title: 'Angular, 1. Auflage (2016)',
+      title: 'Angular, 1. Auflage (2026)',
       description: 'Tooles Buch',
       rating: 5
     },
@@ -34,10 +37,18 @@ export class DashboardPage {
   ]);
 
   doRateUp(book: Book) {
-    console.log(book);
+    const ratedBook = this.bookRatingHelper.rateUp(book);
+    this.updateAndSortBooks(ratedBook);
   }
 
   doRateDown(book: Book) {
-    console.table(book);
+    const ratedBook = this.bookRatingHelper.rateDown(book);
+    this.updateAndSortBooks(ratedBook);
+  }
+
+  updateAndSortBooks(ratedBook: Book) {
+    this.books.update(books => books
+      .map(b => b.isbn === ratedBook.isbn ? ratedBook :b)
+      .sort((a, b) => b.rating - a.rating));
   }
 }
