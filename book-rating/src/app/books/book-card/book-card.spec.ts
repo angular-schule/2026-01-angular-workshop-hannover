@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookCard } from './book-card';
+import { inputBinding } from '@angular/core';
+import { Book } from '../shared/book';
 
-describe.skip('BookCard', () => {
+describe('BookCard', () => {
   let component: BookCard;
   let fixture: ComponentFixture<BookCard>;
 
@@ -12,7 +14,18 @@ describe.skip('BookCard', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BookCard);
+    const book: Book = {
+      isbn: '000',
+      title: '',
+      description: '',
+      rating: 1
+    }
+
+    fixture = TestBed.createComponent(BookCard, {
+      bindings: [
+        inputBinding('book', () => book)
+      ]
+    });
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
