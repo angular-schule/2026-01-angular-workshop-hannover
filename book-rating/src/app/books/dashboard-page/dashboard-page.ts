@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { Book } from '../shared/book';
 import { BookCard } from "../book-card/book-card";
 import { BookRatingHelper } from '../shared/book-rating-helper';
+import { BookCreatePage } from "../book-create-page/book-create-page";
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [BookCard],
+  imports: [BookCard, BookCreatePage],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // weniger Prüfungen als vorher
