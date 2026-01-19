@@ -11,4 +11,12 @@ export class BookCard {
 
   readonly book = input.required<Book>();
 
+  doRateUp() {
+
+  }
+
+  doRateDown() {
+
+  }
+
 }
