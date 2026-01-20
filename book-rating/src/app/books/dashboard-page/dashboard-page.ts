@@ -4,10 +4,12 @@ import { BookCard } from "../book-card/book-card";
 import { BookRatingHelper } from '../shared/book-rating-helper';
 import { BookCreate } from "../book-create/book-create";
 import { BookStore } from '../shared/book-store';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard-page',
-  imports: [BookCard, BookCreate],
+  imports: [BookCard, BookCreate, JsonPipe],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // weniger Prüfungen als vorher
@@ -51,4 +53,11 @@ export class DashboardPage {
       .sort((a, b) => b.rating - a.rating)
     )
   }
+
+  isbn = signal('9783864909467');
+
+  booksResource = rxResource({
+    params: () => this.isbn(),
+    stream: ({ params: isbn }) => this.bookStore.getSingle(isbn)
+  });
 }
