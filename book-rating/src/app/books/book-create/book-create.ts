@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { Book } from '../shared/book';
 import { disabled, form, hidden, max, maxLength, min, minLength, readonly, required, schema, validate, Field, FormField, provideSignalFormsConfig } from '@angular/forms/signals';
 
@@ -17,6 +17,8 @@ import { disabled, form, hidden, max, maxLength, min, minLength, readonly, requi
   ]
 })
 export class BookCreate {
+
+  readonly create = output<Book>();
 
   readonly #formData = signal<Book>({
     isbn: '',
@@ -58,6 +60,7 @@ export class BookCreate {
     // 3. Binde dich an das Event im Dashboard
     // 4. Füge das neue Buch dem Buch-Array hinzu. Achte auf Immutability UND nutze .set oder .update!
 
+    this.create.emit(newBook);
 
     this.bookForm().reset({
       isbn: '',

@@ -58,4 +58,10 @@ export class DashboardPage {
       .map(b => b.isbn === ratedBook.isbn ? ratedBook :b)
       .sort((a, b) => b.rating - a.rating));
   }
+
+  addBook(book: Book) {
+    this.books.update(books => [...books, book]
+      .sort((a, b) => b.rating - a.rating)
+    )
+  }
 }
