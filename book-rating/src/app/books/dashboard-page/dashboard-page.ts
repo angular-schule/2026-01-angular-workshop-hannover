@@ -3,6 +3,7 @@ import { Book } from '../shared/book';
 import { BookCard } from "../book-card/book-card";
 import { BookRatingHelper } from '../shared/book-rating-helper';
 import { BookCreate } from "../book-create/book-create";
+import { BookStore } from '../shared/book-store';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -14,28 +15,14 @@ import { BookCreate } from "../book-create/book-create";
 export class DashboardPage {
 
   bookRatingHelper = inject(BookRatingHelper);
+  bookStore = inject(BookStore);
 
   // 🦆
-  readonly books = signal<Book[]>([
-    {
-      isbn: '000',
-      title: 'Angular, 1. Auflage (2026)',
-      description: 'Tooles Buch',
-      rating: 5
-    },
-    {
-      isbn: '111',
-      title: 'jQuery',
-      description: 'Altes Buch',
-      rating: 3
-    },
-    {
-      isbn: '222',
-      title: 'React',
-      description: 'Wollma nicht',
-      rating: 1
-    },
-  ]);
+  readonly books = signal<Book[]>([]);
+
+  constructor() {
+    this.bookStore.getBooks().subscribe(b => this.books.set(b));
+  }
 
   doRateUp(book: Book) {
     const ratedBook = this.bookRatingHelper.rateUp(book);
