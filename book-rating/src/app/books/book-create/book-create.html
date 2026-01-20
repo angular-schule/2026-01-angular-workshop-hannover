@@ -1,4 +1,4 @@
-<form>
+<form (submit)="submitForm()">
 
   <div class="form-group">
     <label for="isbnField">ISBN</label>
@@ -38,5 +38,5 @@
     }
   </div>
 
-  <button type="submit" class="btn btn-primary mb-4">Abschicken</button>
+  <button [disabled]="bookForm().invalid()" type="submit" class="btn btn-primary mb-4">Abschicken</button>
 </form>
