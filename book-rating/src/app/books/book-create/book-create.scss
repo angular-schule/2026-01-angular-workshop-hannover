@@ -1,0 +1,10 @@
+@use '@angular-schule/workshop-styles';
+
+.valid {
+  @extend .is-valid;
+}
+
+.invalid {
+  @extend .is-invalid;
+  @extend .text-danger;
+}

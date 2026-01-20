@@ -1,1 +1,42 @@
-<p>book-create-page works!</p>
+<form>
+
+  <div class="form-group">
+    <label for="isbnField">ISBN</label>
+    <input [formField]="bookForm.isbn" id="isbnField" type="text" class="form-control" />
+
+    @if (bookForm.isbn().touched()) {
+      @for (e of bookForm.isbn().errors(); track e.kind) {
+        <div class="feedback-error">{{ e.message }}</div>
+      }
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="titleField">Titel</label>
+    <input [formField]="bookForm.title" id="titleField" type="text" class="form-control" />
+
+    @if (bookForm.title().touched()) {
+      @for (e of bookForm.title().errors(); track e.kind) {
+        <div class="feedback-error">{{ e.message }}</div>
+      }
+    }
+  </div>
+
+  <div class="form-group">
+    <label for="descField">Beschreibung</label>
+    <textarea [formField]="bookForm.description" id="descField" class="form-control"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="ratingField">Bewertung</label>
+    <input [formField]="bookForm.rating" id="ratingField" type="number" class="form-control" />
+
+    @if (bookForm.rating().touched()) {
+      @for (e of bookForm.rating().errors(); track e.kind) {
+        <div class="feedback-error">{{ e.message }}</div>
+      }
+    }
+  </div>
+
+  <button type="submit" class="btn btn-primary mb-4">Abschicken</button>
+</form>

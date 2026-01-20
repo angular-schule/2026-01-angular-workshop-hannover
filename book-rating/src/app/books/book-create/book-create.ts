@@ -1,12 +1,20 @@
 import { Component, signal } from '@angular/core';
 import { Book } from '../shared/book';
-import { form, max, maxLength, min, minLength, required, schema, validate } from '@angular/forms/signals';
+import { disabled, form, hidden, max, maxLength, min, minLength, readonly, required, schema, validate, Field, FormField, provideSignalFormsConfig } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-book-create',
-  imports: [],
+  imports: [FormField],
   templateUrl: './book-create.html',
   styleUrl: './book-create.scss',
+  providers: [
+    provideSignalFormsConfig({
+      classes: {
+        'valid': ({ state }) => state().valid() && state().touched(),
+        'invalid': ({ state }) => state().invalid() && state().touched(),
+      }
+    })
+  ]
 })
 export class BookCreate {
 
