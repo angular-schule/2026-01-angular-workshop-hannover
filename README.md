@@ -8,7 +8,7 @@
 In diesem Repository findest du alle Infos zur Vorbereitung und während des Workshops den Quelltext unserer Beispielanwendung.
 
 
-<!--
+
 # 🎮 NEU: RxJS Playground
 
 Du kannst dir entweder  
@@ -23,7 +23,7 @@ ng serve
 
 Öffne den Browser unter der URL [http://localhost:**4300**](http://localhost:4300) (!), um die Anwendung zu sehen.
 Die Übungen befinden sich im Ordner `rxjs-playground/src/app/exercises/`.
--->
+
 
 
 # ✅ Vorbereitung
