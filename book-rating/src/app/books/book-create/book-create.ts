@@ -3,12 +3,12 @@ import { Book } from '../shared/book';
 import { form } from '@angular/forms/signals';
 
 @Component({
-  selector: 'app-book-create-page',
+  selector: 'app-book-create',
   imports: [],
-  templateUrl: './book-create-page.html',
-  styleUrl: './book-create-page.scss',
+  templateUrl: './book-create.html',
+  styleUrl: './book-create.scss',
 })
-export class BookCreatePage {
+export class BookCreate {
 
   readonly #formData = signal<Book>({
     isbn: '',
