@@ -9,9 +9,9 @@ export class ExerciseFromevent {
 
   readonly currentWidth = toSignal(fromEvent<{ target: Window }>(window, 'resize').pipe(
 
-      debounceTime(300),
-      map(e => e.target.innerWidth)
+    debounceTime(300),
+    map(e => e.target.innerWidth)
 
-    ), { initialValue: 1 });
+  ), { initialValue: 1 });
 
 }
