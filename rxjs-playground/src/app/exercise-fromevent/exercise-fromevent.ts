@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { fromEvent, map, startWith, debounceTime } from 'rxjs';
 
 @Component({
@@ -6,28 +7,11 @@ import { fromEvent, map, startWith, debounceTime } from 'rxjs';
 })
 export class ExerciseFromevent {
 
-  readonly currentWidth = signal(0);
-
-  constructor() {
-    /**
-     * Schreibe die jeweils aktuelle Fensterbreite in das Property `this.currentWidth`.
-     *
-     * Nutze fromEvent, um das resize-Event auf window zu abonnieren.
-     * Initialisiere das Observable mit der aktuellen Fensterbreite (`window.innerWidth`).
-     * Entprelle den Eventstrom, damit nicht zu viele Events gefeuert werden.
-     */
-
-    /******************************/
-
-    fromEvent<{ target: Window }>(window, 'resize').pipe(
+  readonly currentWidth = toSignal(fromEvent<{ target: Window }>(window, 'resize').pipe(
 
       debounceTime(300),
       map(e => e.target.innerWidth)
 
-    ).subscribe(e => this.currentWidth.set(e))
-
-
-    /******************************/
-  }
+    ), { initialValue: 1 });
 
 }
