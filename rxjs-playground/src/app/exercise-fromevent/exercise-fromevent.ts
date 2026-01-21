@@ -11,7 +11,7 @@ export class ExerciseFromevent {
   constructor() {
     /**
      * Schreibe die jeweils aktuelle Fensterbreite in das Property `this.currentWidth`.
-     * 
+     *
      * Nutze fromEvent, um das resize-Event auf window zu abonnieren.
      * Initialisiere das Observable mit der aktuellen Fensterbreite (`window.innerWidth`).
      * Entprelle den Eventstrom, damit nicht zu viele Events gefeuert werden.
@@ -19,7 +19,14 @@ export class ExerciseFromevent {
 
     /******************************/
 
-    
+    fromEvent<{ target: Window }>(window, 'resize').pipe(
+
+      debounceTime(300),
+      map(e => e.target.innerWidth)
+
+    ).subscribe(e => this.currentWidth.set(e))
+
+
     /******************************/
   }
 
