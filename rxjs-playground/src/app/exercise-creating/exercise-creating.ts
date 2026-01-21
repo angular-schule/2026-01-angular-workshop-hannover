@@ -24,7 +24,17 @@ export class ExerciseCreating {
 
     /******************************/
 
-    
+    const observable = of('😄', '😊', '😳');
+
+    const observer = {
+      next: (e: string) => this.log(e),
+      error: (err: any) => this.log('ERROR ' + err),
+      complete: () => this.log('COMPLETE')
+    }
+
+    const subscription = observable.subscribe(observer);
+    subscription.unsubscribe();
+
     /******************************/
   }
 
