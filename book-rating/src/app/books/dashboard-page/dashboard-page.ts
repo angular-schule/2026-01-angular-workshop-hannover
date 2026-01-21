@@ -6,6 +6,7 @@ import { BookCreate } from "../book-create/book-create";
 import { BookStore } from '../shared/book-store';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { JsonPipe } from '@angular/common';
+import { httpResource } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -56,8 +57,13 @@ export class DashboardPage {
 
   isbn = signal('9783864909467');
 
-  booksResource = rxResource({
+  readonly bookResource = rxResource({
     params: () => this.isbn(),
     stream: ({ params: isbn }) => this.bookStore.getSingle(isbn)
   });
+
+  readonly bookResource2 = httpResource<Book>(
+    () => `https://api.angular.schule/books/${this.isbn()}`
+  );
+
 }

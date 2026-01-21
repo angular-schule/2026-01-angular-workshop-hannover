@@ -12,15 +12,15 @@
 
 
 
-@if(booksResource.hasValue()) {
+@if(bookResource2.hasValue()) {
 
-  <pre>{{ booksResource.value() | json }}</pre>
+  <pre>{{ bookResource2.value() | json }}</pre>
 
-  Loading: {{ booksResource.isLoading() }}<br>
-  Status: {{ booksResource.status() }}<br>
+  Loading: {{ bookResource2.isLoading() }}<br>
+  Status: {{ bookResource2.status() }}<br>
 
-} @else if (booksResource.error()) {
-  <p>Fehler beim Laden: {{ booksResource.error()?.message }}</p>
+} @else if (bookResource2.error()) {
+  <p>Fehler beim Laden: {{ bookResource2.error()?.message }}</p>
 }
 
 <button (click)="isbn.set('9783864907791')">Angular 3</button>
