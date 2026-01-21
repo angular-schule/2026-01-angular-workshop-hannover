@@ -1,1 +1,8 @@
-<p>book-details-page works!</p>
+<h2>{{ isbn() }}</h2>
+
+@if (book.hasValue()) {
+  <p>{{ book.value().description }}</p>
+}
+
+<a routerLink="/books/9783864909467">Angular 4</a><br>
+<a routerLink="/books/9783864905520">React</a>
